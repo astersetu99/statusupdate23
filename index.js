@@ -3,21 +3,9 @@ const fs = require("fs");
 const config = require("./config.json");
 const bot = new discord.Client({disableEveryone: true});
 
-bot.on('message', message =>{
-
-    // Variables
-    var sender = message.author; //The person who sent the message
-    var msg = message.content;
-    var prefix = "." //The text before commands, you can put anything that you prefer
-
-    if(message.author.id != "598197648167534632" && message.channel.id === "597329293533511691"){
-        if(msg.startsWith('.', 0)){
-            if(msg === prefix + "." && message.channel.id === "597329293533511691"){
-                message.channel.send('========QUESTION========') // Sends a message to the channel, with the content
-            }
-
 // When bot ready
 bot.on("ready", async () => {
+     if(message.author.id != "598197648167534632" && message.channel.id === "597329293533511691"){
   console.log(`${bot.user.username} is ready for action!`);
   if (config.activity.streaming == true) {
     bot.user.setActivity(config.activity.game, {url: 'https://twitch.tv/username'});
